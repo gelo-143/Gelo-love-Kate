@@ -1,1 +1,582 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>To My Forever Sungit ♡</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --accent: #E8FF36;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #111111;
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* MAIN HOMEPAGE */
+
+        .hero {
+            min-height: 100svh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            isolation: isolate;
+            background: #171717;
+        }
+
+        /* BACKGROUND PHOTOGRAPHS */
+
+        .background-slideshow {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+
+            background-size: cover;
+            background-position: center;
+
+            opacity: 0;
+            transform: scale(1.05);
+
+            transition:
+                opacity 1.8s ease,
+                transform 7s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* DARK OVERLAY */
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.48),
+                    rgba(0,0,0,0.12),
+                    rgba(0,0,0,0.42)
+                ),
+                linear-gradient(
+                    0deg,
+                    rgba(0,0,0,0.45),
+                    transparent 45%,
+                    rgba(0,0,0,0.25)
+                );
+        }
+
+        /* FRAME */
+
+        .frame {
+            position: absolute;
+            inset: 13px;
+            border: 1px solid rgba(255,255,255,0.45);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* TOP DETAILS */
+
+        .top-details {
+            position: absolute;
+            top: 12%;
+            left: 6.5%;
+            right: 6.5%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            z-index: 3;
+        }
+
+        .detail {
+            font-size: 12px;
+            line-height: 1.4;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .detail.right {
+            text-align: right;
+        }
+
+        /* MAIN TITLE */
+
+        .main-content {
+            width: 100%;
+            padding: 30px 15px;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .small-heading {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .main-title {
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+
+            font-size: clamp(48px, 10.5vw, 145px);
+            line-height: 0.92;
+            letter-spacing: -5px;
+
+            text-shadow: 0 3px 20px rgba(0,0,0,0.15);
+        }
+
+        .main-title span {
+            display: block;
+        }
+
+        .subtitle {
+            margin-top: 25px;
+            color: white;
+            font-size: 12px;
+            letter-spacing: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* BOTTOM DETAILS */
+
+        .bottom-details {
+            position: absolute;
+            bottom: 12%;
+            left: 6.5%;
+            right: 6.5%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            z-index: 3;
+        }
+
+        .bottom-details p {
+            color: var(--accent);
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+        .bottom-details .right {
+            text-align: right;
+        }
+
+        /* DISCOVER BUTTON */
+
+        .discover {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            color: white;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            z-index: 4;
+            opacity: 0.85;
+        }
+
+        .discover:hover {
+            color: var(--accent);
+        }
+
+        /* PHOTO INDICATORS */
+
+        .indicators {
+            position: absolute;
+            bottom: 28px;
+            right: 7%;
+            display: flex;
+            gap: 7px;
+            z-index: 4;
+        }
+
+        .dot {
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: var(--accent);
+            width: 20px;
+            border-radius: 5px;
+        }
+
+        /* WELCOME SECTION */
+
+        .welcome {
+            background: #111111;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .welcome .eyebrow {
+            color: var(--accent);
+            font-size: 10px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+
+        .welcome h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(30px, 5vw, 55px);
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .welcome p {
+            max-width: 600px;
+            margin: auto;
+            font-size: 14px;
+            line-height: 2;
+            color: #D5D5D5;
+        }
+
+        .signature {
+            color: var(--accent);
+            margin-top: 25px;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid #333333;
+            background: #111111;
+        }
+
+        footer p {
+            color: var(--accent);
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        /* MOBILE VERSION */
+
+        @media (max-width: 600px) {
+
+            .frame {
+                inset: 8px;
+            }
+
+            .top-details {
+                top: 9%;
+                left: 7%;
+                right: 7%;
+            }
+
+            .detail {
+                font-size: 9px;
+            }
+
+            .main-title {
+                font-size: clamp(43px, 12vw, 75px);
+                letter-spacing: -2px;
+                line-height: 1;
+            }
+
+            .small-heading {
+                font-size: 9px;
+                letter-spacing: 3px;
+            }
+
+            .subtitle {
+                font-size: 9px;
+                letter-spacing: 3px;
+                line-height: 1.8;
+            }
+
+            .bottom-details {
+                bottom: 12%;
+                left: 7%;
+                right: 7%;
+            }
+
+            .bottom-details p {
+                font-size: 9px;
+            }
+
+            .discover {
+                bottom: 30px;
+                font-size: 8px;
+                white-space: nowrap;
+            }
+
+            .indicators {
+                bottom: 52px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+            .welcome {
+                padding: 75px 25px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- HOMEPAGE -->
+
+    <section class="hero">
+
+        <div class="background-slideshow">
+
+            <div class="slide active"
+                 style="background-image: url('images/photo-1.jpg')">
+            </div>
+
+            <div class="slide"
+                 style="background-image: url('images/photo-2.jpg')">
+            </div>
+
+            <div class="slide"
+                 style="background-image: url('images/photo-3.jpg')">
+            </div>
+
+            <div class="slide"
+                 style="background-image: url('images/photo-4.jpg')">
+            </div>
+
+        </div>
+
+
+        <div class="frame"></div>
+
+
+        <!-- TOP LEFT AND RIGHT -->
+
+        <div class="top-details">
+
+            <div class="detail">
+                MADE WITH LOVE<br>
+                ESPECIALLY FOR YOU
+            </div>
+
+            <div class="detail right">
+                TO MY FOREVER<br>
+                SUNGIT ♡
+            </div>
+
+        </div>
+
+
+        <!-- MAIN TITLE -->
+
+        <div class="main-content">
+
+            <p class="small-heading">
+                A LITTLE CELEBRATION OF YOU
+            </p>
+
+            <h1 class="main-title">
+                <span>HAPPY</span>
+                <span>BIRTHDAY</span>
+            </h1>
+
+            <p class="subtitle">
+                MY FOREVER SUNGIT ♡
+            </p>
+
+        </div>
+
+
+        <!-- BOTTOM LEFT AND RIGHT -->
+
+        <div class="bottom-details">
+
+            <div>
+                <p>
+                    MY BABY · MY LOVIE<br>
+                    MY BEBE · MY EBEB
+                </p>
+            </div>
+
+            <div class="right">
+                <p>
+                    MY FAVORITE PERSON<br>
+                    ALWAYS AND FOREVER ♡
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- DISCOVER -->
+
+        <a href="#welcome" class="discover">
+            SCROLL TO ENTER OUR LITTLE WORLD ↓
+        </a>
+
+
+        <!-- SLIDESHOW INDICATORS -->
+
+        <div class="indicators">
+
+            <button class="dot active"
+                    aria-label="Show photograph 1">
+            </button>
+
+            <button class="dot"
+                    aria-label="Show photograph 2">
+            </button>
+
+            <button class="dot"
+                    aria-label="Show photograph 3">
+            </button>
+
+            <button class="dot"
+                    aria-label="Show photograph 4">
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- WELCOME MESSAGE -->
+
+    <section class="welcome" id="welcome">
+
+        <p class="eyebrow">
+            A MESSAGE JUST FOR YOU
+        </p>
+
+        <h2>Welcome to our little world, Baby.</h2>
+
+        <p>
+            I made this just for you. Every picture,
+            every word, and every little detail here
+            reminds me of how lucky I am to have you.
+            Happy birthday, my love. ♡
+        </p>
+
+        <p class="signature">
+            WITH ALL MY LOVE, ALWAYS.
+        </p>
+
+    </section>
+
+
+    <footer>
+        <p>TO MY FOREVER SUNGIT ♡</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT: AUTOMATIC BACKGROUND SLIDESHOW -->
+
+    <script>
+
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+
+            slides[currentSlide].classList.remove("active");
+            dots[currentSlide].classList.remove("active");
+
+            currentSlide = index;
+
+            slides[currentSlide].classList.add("active");
+            dots[currentSlide].classList.add("active");
+
+        }
+
+        function nextSlide() {
+
+            let next = (currentSlide + 1) % slides.length;
+
+            showSlide(next);
+
+        }
+
+        // Change the background photograph every 5 seconds
+
+        let slideshow = setInterval(nextSlide, 5000);
+
+
+        // Allow visitors to select photographs manually
+
+        dots.forEach((dot, index) => {
+
+            dot.addEventListener("click", () => {
+
+                clearInterval(slideshow);
+
+                showSlide(index);
+
+                slideshow = setInterval(nextSlide, 5000);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
