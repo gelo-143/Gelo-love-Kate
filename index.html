@@ -8,15 +8,21 @@
 
     <title>To My Forever Sungit ♡</title>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=DM+Sans:wght@400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
 
     <style>
 
         :root {
-            --accent: #E8FF36;
+            --pink: #F8DCE7;
+            --light-pink: #FFF2F6;
+            --soft-rose: #E9B7CA;
+            --rose: #D887A5;
+            --dark-rose: #9D526F;
+            --cream: #FFF9F6;
             --white: #FFFFFF;
         }
 
@@ -31,8 +37,8 @@
         }
 
         body {
-            background: #111111;
-            color: white;
+            background: var(--light-pink);
+            color: var(--dark-rose);
             font-family: 'DM Sans', sans-serif;
         }
 
@@ -43,14 +49,16 @@
             width: 100%;
             position: relative;
             overflow: hidden;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             isolation: isolate;
-            background: #171717;
+            background: #D9A9BB;
         }
 
-        /* BACKGROUND PHOTOGRAPHS */
+        /* BACKGROUND PHOTO SLIDESHOW */
 
         .background-slideshow {
             position: absolute;
@@ -78,7 +86,7 @@
             transform: scale(1);
         }
 
-        /* DARK OVERLAY */
+        /* PINK OVERLAY */
 
         .hero::after {
             content: "";
@@ -89,15 +97,15 @@
             background:
                 linear-gradient(
                     90deg,
-                    rgba(0,0,0,0.48),
-                    rgba(0,0,0,0.12),
-                    rgba(0,0,0,0.42)
+                    rgba(83, 38, 58, 0.42),
+                    rgba(117, 57, 82, 0.18),
+                    rgba(83, 38, 58, 0.42)
                 ),
                 linear-gradient(
                     0deg,
-                    rgba(0,0,0,0.45),
-                    transparent 45%,
-                    rgba(0,0,0,0.25)
+                    rgba(83, 38, 58, 0.45),
+                    rgba(235, 170, 194, 0.12),
+                    rgba(83, 38, 58, 0.30)
                 );
         }
 
@@ -106,7 +114,9 @@
         .frame {
             position: absolute;
             inset: 13px;
-            border: 1px solid rgba(255,255,255,0.45);
+
+            border: 1px solid rgba(255, 231, 240, 0.85);
+
             pointer-events: none;
             z-index: 2;
         }
@@ -115,7 +125,7 @@
 
         .top-details {
             position: absolute;
-            top: 12%;
+            top: 10%;
             left: 6.5%;
             right: 6.5%;
 
@@ -127,15 +137,25 @@
         }
 
         .detail {
-            font-size: 12px;
-            line-height: 1.4;
+            max-width: 220px;
+
+            font-size: 11px;
+            line-height: 1.6;
             font-weight: 700;
-            color: var(--accent);
+
+            color: #FFE8F0;
             text-transform: uppercase;
+            letter-spacing: 1px;
+
+            text-shadow: 0 2px 8px rgba(65, 25, 42, 0.3);
         }
 
         .detail.right {
             text-align: right;
+            font-family: 'Sacramento', cursive;
+            font-size: 24px;
+            letter-spacing: 0;
+            text-transform: none;
         }
 
         /* MAIN TITLE */
@@ -143,31 +163,36 @@
         .main-content {
             width: 100%;
             padding: 30px 15px;
+
             text-align: center;
+
             position: relative;
             z-index: 3;
         }
 
         .small-heading {
-            color: var(--accent);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 5px;
+            color: #FFE5EF;
+
+            font-family: 'Sacramento', cursive;
+            font-size: clamp(23px, 3vw, 34px);
+
             margin-bottom: 15px;
-            text-transform: uppercase;
+
+            text-shadow: 0 2px 10px rgba(65, 25, 42, 0.4);
         }
 
         .main-title {
             font-family: 'Bodoni Moda', serif;
             font-weight: 500;
-            color: var(--accent);
+
+            color: #FFE4ED;
             text-transform: uppercase;
 
             font-size: clamp(48px, 10.5vw, 145px);
-            line-height: 0.92;
+            line-height: 0.95;
             letter-spacing: -5px;
 
-            text-shadow: 0 3px 20px rgba(0,0,0,0.15);
+            text-shadow: 0 3px 20px rgba(65, 25, 42, 0.3);
         }
 
         .main-title span {
@@ -176,18 +201,56 @@
 
         .subtitle {
             margin-top: 25px;
-            color: white;
+
+            color: #FFF0F5;
+
             font-size: 12px;
-            letter-spacing: 5px;
-            font-weight: 600;
+            letter-spacing: 4px;
+            line-height: 1.8;
+            font-weight: 700;
+
             text-transform: uppercase;
+
+            text-shadow: 0 2px 8px rgba(65, 25, 42, 0.4);
+        }
+
+        /* CLICK HERE BUTTON */
+
+        .click-button {
+            display: inline-block;
+
+            margin-top: 32px;
+            padding: 13px 34px;
+
+            background: #F7D6E3;
+            color: #92506C;
+
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 50px;
+
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+
+            text-decoration: none;
+
+            box-shadow: 0 5px 20px rgba(65, 25, 42, 0.2);
+
+            transition: 0.3s ease;
+        }
+
+        .click-button:hover {
+            background: #FFFFFF;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(65, 25, 42, 0.25);
         }
 
         /* BOTTOM DETAILS */
 
         .bottom-details {
             position: absolute;
-            bottom: 12%;
+            bottom: 9%;
             left: 6.5%;
             right: 6.5%;
 
@@ -199,115 +262,149 @@
         }
 
         .bottom-details p {
-            color: var(--accent);
-            font-size: 12px;
-            line-height: 1.5;
+            color: #FFE8F0;
+
+            font-size: 11px;
+            line-height: 1.7;
             font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-shadow: 0 2px 8px rgba(65, 25, 42, 0.4);
         }
 
         .bottom-details .right {
             text-align: right;
-        }
-
-        /* DISCOVER BUTTON */
-
-        .discover {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-
-            color: white;
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-
-            z-index: 4;
-            opacity: 0.85;
-        }
-
-        .discover:hover {
-            color: var(--accent);
+            font-family: 'Sacramento', cursive;
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 0;
         }
 
         /* PHOTO INDICATORS */
 
         .indicators {
             position: absolute;
-            bottom: 28px;
+            bottom: 25px;
             right: 7%;
+
             display: flex;
             gap: 7px;
+
             z-index: 4;
         }
 
         .dot {
-            height: 5px;
-            width: 5px;
+            height: 6px;
+            width: 6px;
+
             border-radius: 50%;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 235, 243, 0.6);
+
             border: none;
             cursor: pointer;
         }
 
         .dot.active {
-            background: var(--accent);
-            width: 20px;
+            background: #FFE4ED;
+            width: 21px;
             border-radius: 5px;
         }
 
         /* WELCOME SECTION */
 
         .welcome {
-            background: #111111;
-            color: white;
-            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 10% 15%, #FCE3EC, transparent 35%),
+                radial-gradient(circle at 90% 85%, #F6DCE7, transparent 35%),
+                #FFF8FA;
+
+            color: var(--dark-rose);
+
+            padding: 100px 25px;
             text-align: center;
         }
 
+        .welcome::before {
+            content: "♡";
+            position: absolute;
+            top: 25px;
+            left: 8%;
+
+            color: #F0C5D5;
+            font-size: 45px;
+            opacity: 0.6;
+        }
+
+        .welcome::after {
+            content: "♡";
+            position: absolute;
+            bottom: 25px;
+            right: 8%;
+
+            color: #F0C5D5;
+            font-size: 45px;
+            opacity: 0.6;
+        }
+
         .welcome .eyebrow {
-            color: var(--accent);
-            font-size: 10px;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
+            color: var(--rose);
+
+            font-family: 'Sacramento', cursive;
+            font-size: 29px;
+
+            margin-bottom: 10px;
         }
 
         .welcome h2 {
             font-family: 'Bodoni Moda', serif;
-            font-size: clamp(30px, 5vw, 55px);
+
+            font-size: clamp(31px, 5vw, 57px);
             font-weight: 500;
+
+            color: var(--dark-rose);
+
             margin-bottom: 25px;
         }
 
         .welcome p {
-            max-width: 600px;
-            margin: auto;
+            max-width: 680px;
+            margin: 0 auto 20px;
+
             font-size: 14px;
             line-height: 2;
-            color: #D5D5D5;
+
+            color: #79596A;
         }
 
-        .signature {
-            color: var(--accent);
-            margin-top: 25px;
-            font-size: 13px;
-            letter-spacing: 3px;
+        .welcome .closing {
+            font-family: 'Sacramento', cursive;
+            font-size: 34px;
+
+            color: var(--rose);
+
+            margin-top: 30px;
         }
 
         /* FOOTER */
 
         footer {
             padding: 25px;
+
             text-align: center;
-            border-top: 1px solid #333333;
-            background: #111111;
+
+            background: #F3D6E1;
+            border-top: 1px solid #E9C4D2;
         }
 
         footer p {
-            color: var(--accent);
-            font-size: 11px;
-            letter-spacing: 3px;
+            font-family: 'Sacramento', cursive;
+            font-size: 27px;
+
+            color: var(--dark-rose);
         }
 
         /* MOBILE VERSION */
@@ -319,13 +416,19 @@
             }
 
             .top-details {
-                top: 9%;
+                top: 8%;
                 left: 7%;
                 right: 7%;
             }
 
             .detail {
-                font-size: 9px;
+                max-width: 145px;
+                font-size: 8px;
+                letter-spacing: 0.5px;
+            }
+
+            .detail.right {
+                font-size: 19px;
             }
 
             .main-title {
@@ -335,34 +438,36 @@
             }
 
             .small-heading {
-                font-size: 9px;
-                letter-spacing: 3px;
+                font-size: 25px;
             }
 
             .subtitle {
                 font-size: 9px;
-                letter-spacing: 3px;
-                line-height: 1.8;
+                letter-spacing: 2px;
+            }
+
+            .click-button {
+                margin-top: 25px;
+                padding: 12px 28px;
             }
 
             .bottom-details {
-                bottom: 12%;
+                bottom: 8%;
                 left: 7%;
                 right: 7%;
             }
 
             .bottom-details p {
-                font-size: 9px;
+                font-size: 8px;
+                letter-spacing: 0.5px;
             }
 
-            .discover {
-                bottom: 30px;
-                font-size: 8px;
-                white-space: nowrap;
+            .bottom-details .right {
+                font-size: 18px;
             }
 
             .indicators {
-                bottom: 52px;
+                bottom: 22px;
                 right: 50%;
                 transform: translateX(50%);
             }
@@ -370,9 +475,14 @@
             .welcome {
                 padding: 75px 25px;
             }
+
+            .welcome p {
+                font-size: 13px;
+            }
         }
 
     </style>
+
 </head>
 
 
@@ -381,6 +491,8 @@
     <!-- HOMEPAGE -->
 
     <section class="hero">
+
+        <!-- BACKGROUND PHOTOGRAPHS -->
 
         <div class="background-slideshow">
 
@@ -406,18 +518,17 @@
         <div class="frame"></div>
 
 
-        <!-- TOP LEFT AND RIGHT -->
+        <!-- TOP DETAILS -->
 
         <div class="top-details">
 
             <div class="detail">
-                MADE WITH LOVE<br>
+                A SIMPLE WEBSITE MADE BY GELO
                 ESPECIALLY FOR YOU
             </div>
 
             <div class="detail right">
-                TO MY FOREVER<br>
-                SUNGIT ♡
+                To my forever Sungit ♡
             </div>
 
         </div>
@@ -428,7 +539,7 @@
         <div class="main-content">
 
             <p class="small-heading">
-                A LITTLE CELEBRATION OF YOU
+                To the loveliest and prettiest
             </p>
 
             <h1 class="main-title">
@@ -437,41 +548,38 @@
             </h1>
 
             <p class="subtitle">
-                MY FOREVER SUNGIT ♡
+                MY BABY · MY LOVIE
+                <br>
+                MY BEBE · MY EBEB
             </p>
+
+            <a href="#welcome" class="click-button">
+                Click Here! ♡
+            </a>
 
         </div>
 
 
-        <!-- BOTTOM LEFT AND RIGHT -->
+        <!-- BOTTOM DETAILS -->
 
         <div class="bottom-details">
 
             <div>
                 <p>
-                    MY BABY · MY LOVIE<br>
+                    MY BABY · MY LOVIE
+                    <br>
                     MY BEBE · MY EBEB
                 </p>
             </div>
 
             <div class="right">
-                <p>
-                    MY FAVORITE PERSON<br>
-                    ALWAYS AND FOREVER ♡
-                </p>
+                To my forever Sungit ♡
             </div>
 
         </div>
 
 
-        <!-- DISCOVER -->
-
-        <a href="#welcome" class="discover">
-            SCROLL TO ENTER OUR LITTLE WORLD ↓
-        </a>
-
-
-        <!-- SLIDESHOW INDICATORS -->
+        <!-- PHOTO INDICATORS -->
 
         <div class="indicators">
 
@@ -501,10 +609,10 @@
     <section class="welcome" id="welcome">
 
         <p class="eyebrow">
-            A MESSAGE JUST FOR YOU
+            Welcome to our little world, Baby.
         </p>
 
-        <h2>Welcome to our little world, Baby.</h2>
+        <h2>Happy Birthday, baby!</h2>
 
         <p>
             I made this just for you. Every picture,
@@ -513,19 +621,35 @@
             Happy birthday, my love. ♡
         </p>
 
-        <p class="signature">
-            WITH ALL MY LOVE, ALWAYS.
+        <p>
+            Welcome to this simple website I created
+            while I was still in the academy always
+            thinking of you.
+        </p>
+
+        <p>
+            Feel free to cringe with my words and
+            cringyness. Every word, every picture, and
+            every little detail here reminds me of how
+            super lucky I am to have you. Mwa Mwa.
+            Enjoy my silly website greeting!
+        </p>
+
+        <p class="closing">
+            I love you always and the mostest! ♡
         </p>
 
     </section>
 
 
+    <!-- FOOTER -->
+
     <footer>
-        <p>TO MY FOREVER SUNGIT ♡</p>
+        <p>To my forever Sungit ♡</p>
     </footer>
 
 
-    <!-- JAVASCRIPT: AUTOMATIC BACKGROUND SLIDESHOW -->
+    <!-- JAVASCRIPT: BACKGROUND SLIDESHOW -->
 
     <script>
 
@@ -554,12 +678,12 @@
 
         }
 
-        // Change the background photograph every 5 seconds
+        // Change the background photo every 5 seconds
 
         let slideshow = setInterval(nextSlide, 5000);
 
 
-        // Allow visitors to select photographs manually
+        // Allow visitors to select a photograph
 
         dots.forEach((dot, index) => {
 
