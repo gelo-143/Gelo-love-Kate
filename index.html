@@ -8,21 +8,20 @@
 
     <title>To My Forever Sungit ♡</title>
 
-    <!-- Fonts -->
+    <!-- ORIGINAL FONT STYLES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=DM+Sans:wght@400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
     <style>
 
         :root {
-            --pink: #F8DCE7;
-            --light-pink: #FFF2F6;
-            --soft-rose: #E9B7CA;
-            --rose: #D887A5;
-            --dark-rose: #9D526F;
-            --cream: #FFF9F6;
+            --pink: #F4C6D7;
+            --light-pink: #FBE4EC;
+            --rose: #D989A8;
+            --dark-rose: #8F526B;
+            --cream: #FFF8FA;
             --white: #FFFFFF;
         }
 
@@ -37,16 +36,17 @@
         }
 
         body {
-            background: var(--light-pink);
+            background: var(--cream);
             color: var(--dark-rose);
             font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* MAIN HOMEPAGE */
+        /* FIRST SECTION */
 
         .hero {
             min-height: 100svh;
-            width: 100%;
+            height: 100svh;
             position: relative;
             overflow: hidden;
 
@@ -54,11 +54,11 @@
             align-items: center;
             justify-content: center;
 
+            background: #D9A8BA;
             isolation: isolate;
-            background: #D9A9BB;
         }
 
-        /* BACKGROUND PHOTO SLIDESHOW */
+        /* BACKGROUND SLIDESHOW */
 
         .background-slideshow {
             position: absolute;
@@ -74,11 +74,11 @@
             background-position: center;
 
             opacity: 0;
-            transform: scale(1.05);
+            transform: scale(1.04);
 
             transition:
-                opacity 1.8s ease,
-                transform 7s ease;
+                opacity 1.5s ease,
+                transform 6s ease;
         }
 
         .slide.active {
@@ -86,7 +86,7 @@
             transform: scale(1);
         }
 
-        /* PINK OVERLAY */
+        /* SOFT PINK PHOTO OVERLAY */
 
         .hero::after {
             content: "";
@@ -97,402 +97,367 @@
             background:
                 linear-gradient(
                     90deg,
-                    rgba(83, 38, 58, 0.42),
-                    rgba(117, 57, 82, 0.18),
-                    rgba(83, 38, 58, 0.42)
+                    rgba(91, 42, 64, 0.48),
+                    rgba(150, 75, 105, 0.22),
+                    rgba(91, 42, 64, 0.48)
                 ),
-                linear-gradient(
-                    0deg,
-                    rgba(83, 38, 58, 0.45),
-                    rgba(235, 170, 194, 0.12),
-                    rgba(83, 38, 58, 0.30)
-                );
+                rgba(245, 190, 210, 0.12);
         }
 
-        /* FRAME */
+        /* THIN FRAME */
 
         .frame {
             position: absolute;
-            inset: 13px;
+            inset: 14px;
 
-            border: 1px solid rgba(255, 231, 240, 0.85);
+            border: 1px solid rgba(255, 235, 242, 0.85);
 
             pointer-events: none;
+            z-index: 3;
+        }
+
+        /* CORNER TEXT */
+
+        .corner {
+            position: absolute;
+            z-index: 4;
+
+            color: #FFF0F5;
+
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 1.5;
+
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(70, 30, 48, 0.35);
+        }
+
+        .top-left {
+            top: 12%;
+            left: 6.5%;
+            max-width: 230px;
+        }
+
+        .top-right {
+            top: 12%;
+            right: 6.5%;
+            text-align: right;
+        }
+
+        .bottom-left {
+            bottom: 12%;
+            left: 6.5%;
+        }
+
+        .bottom-right {
+            bottom: 12%;
+            right: 6.5%;
+            text-align: right;
+        }
+
+        /* CENTER CONTENT */
+
+        .hero-content {
+            width: 100%;
+            padding: 20px;
+
+            text-align: center;
             z-index: 2;
         }
 
-        /* TOP DETAILS */
+        .eyebrow {
+            margin-bottom: 18px;
 
-        .top-details {
-            position: absolute;
-            top: 10%;
-            left: 6.5%;
-            right: 6.5%;
+            color: #FFE7EF;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-
-            z-index: 3;
-        }
-
-        .detail {
-            max-width: 220px;
-
-            font-size: 11px;
-            line-height: 1.6;
+            font-size: 12px;
             font-weight: 700;
-
-            color: #FFE8F0;
+            letter-spacing: 7px;
             text-transform: uppercase;
-            letter-spacing: 1px;
 
-            text-shadow: 0 2px 8px rgba(65, 25, 42, 0.3);
-        }
-
-        .detail.right {
-            text-align: right;
-            font-family: 'Sacramento', cursive;
-            font-size: 24px;
-            letter-spacing: 0;
-            text-transform: none;
-        }
-
-        /* MAIN TITLE */
-
-        .main-content {
-            width: 100%;
-            padding: 30px 15px;
-
-            text-align: center;
-
-            position: relative;
-            z-index: 3;
-        }
-
-        .small-heading {
-            color: #FFE5EF;
-
-            font-family: 'Sacramento', cursive;
-            font-size: clamp(23px, 3vw, 34px);
-
-            margin-bottom: 15px;
-
-            text-shadow: 0 2px 10px rgba(65, 25, 42, 0.4);
+            text-shadow: 0 2px 10px rgba(70, 30, 48, 0.4);
         }
 
         .main-title {
-            font-family: 'Bodoni Moda', serif;
-            font-weight: 500;
+            color: #FBE0EA;
 
-            color: #FFE4ED;
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 400;
+
+            font-size: clamp(65px, 11vw, 145px);
+            line-height: 0.88;
+            letter-spacing: -5px;
             text-transform: uppercase;
 
-            font-size: clamp(48px, 10.5vw, 145px);
-            line-height: 0.95;
-            letter-spacing: -5px;
-
-            text-shadow: 0 3px 20px rgba(65, 25, 42, 0.3);
+            text-shadow: 0 3px 20px rgba(70, 30, 48, 0.2);
         }
 
         .main-title span {
             display: block;
         }
 
-        .subtitle {
-            margin-top: 25px;
+        .main-subtitle {
+            margin-top: 30px;
 
-            color: #FFF0F5;
+            color: #FFF5F8;
 
-            font-size: 12px;
-            letter-spacing: 4px;
-            line-height: 1.8;
+            font-size: 14px;
             font-weight: 700;
-
+            letter-spacing: 6px;
+            line-height: 1.8;
             text-transform: uppercase;
-
-            text-shadow: 0 2px 8px rgba(65, 25, 42, 0.4);
         }
 
-        /* CLICK HERE BUTTON */
+        /* CLICK HERE */
 
-        .click-button {
+        .enter-button {
             display: inline-block;
+            margin-top: 35px;
 
-            margin-top: 32px;
-            padding: 13px 34px;
+            padding: 11px 27px;
 
-            background: #F7D6E3;
-            color: #92506C;
+            color: #8F526B;
+            background: #F9DCE7;
 
-            border: 1px solid rgba(255,255,255,0.7);
-            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 30px;
 
             font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 1px;
-
+            letter-spacing: 2px;
             text-decoration: none;
-
-            box-shadow: 0 5px 20px rgba(65, 25, 42, 0.2);
 
             transition: 0.3s ease;
         }
 
-        .click-button:hover {
+        .enter-button:hover {
             background: #FFFFFF;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(65, 25, 42, 0.25);
+            transform: translateY(-3px);
         }
 
-        /* BOTTOM DETAILS */
-
-        .bottom-details {
-            position: absolute;
-            bottom: 9%;
-            left: 6.5%;
-            right: 6.5%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-
-            z-index: 3;
-        }
-
-        .bottom-details p {
-            color: #FFE8F0;
-
-            font-size: 11px;
-            line-height: 1.7;
-            font-weight: 700;
-
-            letter-spacing: 1px;
-
-            text-shadow: 0 2px 8px rgba(65, 25, 42, 0.4);
-        }
-
-        .bottom-details .right {
-            text-align: right;
-            font-family: 'Sacramento', cursive;
-            font-size: 23px;
-            font-weight: 400;
-            letter-spacing: 0;
-        }
-
-        /* PHOTO INDICATORS */
+        /* SLIDESHOW INDICATORS */
 
         .indicators {
             position: absolute;
-            bottom: 25px;
-            right: 7%;
+            z-index: 5;
+
+            right: 6.5%;
+            bottom: 7%;
 
             display: flex;
-            gap: 7px;
-
-            z-index: 4;
+            align-items: center;
+            gap: 8px;
         }
 
         .dot {
-            height: 6px;
-            width: 6px;
-
-            border-radius: 50%;
-            background: rgba(255, 235, 243, 0.6);
+            width: 7px;
+            height: 7px;
 
             border: none;
+            border-radius: 20px;
+
+            background: rgba(255, 240, 246, 0.6);
             cursor: pointer;
+
+            transition: 0.3s;
         }
 
         .dot.active {
-            background: #FFE4ED;
-            width: 21px;
-            border-radius: 5px;
+            width: 25px;
+            background: #F9DCE7;
         }
 
-        /* WELCOME SECTION */
+        /* SECOND SECTION */
 
-        .welcome {
-            position: relative;
-            overflow: hidden;
+        .message-section {
+            min-height: 100svh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             background:
-                radial-gradient(circle at 10% 15%, #FCE3EC, transparent 35%),
-                radial-gradient(circle at 90% 85%, #F6DCE7, transparent 35%),
+                radial-gradient(
+                    circle at 50% 0%,
+                    #FBE5ED,
+                    transparent 65%
+                ),
                 #FFF8FA;
 
-            color: var(--dark-rose);
-
-            padding: 100px 25px;
             text-align: center;
+            position: relative;
         }
 
-        .welcome::before {
-            content: "♡";
-            position: absolute;
-            top: 25px;
-            left: 8%;
-
-            color: #F0C5D5;
-            font-size: 45px;
-            opacity: 0.6;
+        .message-content {
+            width: min(850px, 88%);
+            margin: auto;
+            padding: 100px 0 85px;
         }
 
-        .welcome::after {
-            content: "♡";
-            position: absolute;
-            bottom: 25px;
-            right: 8%;
+        .message-eyebrow {
+            margin-bottom: 35px;
 
-            color: #F0C5D5;
-            font-size: 45px;
-            opacity: 0.6;
-        }
-
-        .welcome .eyebrow {
             color: var(--rose);
 
-            font-family: 'Sacramento', cursive;
-            font-size: 29px;
-
-            margin-bottom: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 7px;
+            text-transform: uppercase;
         }
 
-        .welcome h2 {
-            font-family: 'Bodoni Moda', serif;
+        .message-heading {
+            margin-bottom: 38px;
 
-            font-size: clamp(31px, 5vw, 57px);
+            color: var(--dark-rose);
+
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 53px);
             font-weight: 500;
-
-            color: var(--dark-rose);
-
-            margin-bottom: 25px;
+            line-height: 1.3;
         }
 
-        .welcome p {
-            max-width: 680px;
-            margin: 0 auto 20px;
+        .message-paragraph {
+            max-width: 750px;
+            margin: 0 auto 18px;
 
-            font-size: 14px;
+            color: #795B6B;
+
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
             line-height: 2;
-
-            color: #79596A;
         }
 
-        .welcome .closing {
-            font-family: 'Sacramento', cursive;
-            font-size: 34px;
+        .closing-message {
+            margin-top: 25px;
 
             color: var(--rose);
 
-            margin-top: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-style: italic;
+            letter-spacing: 2px;
         }
 
-        /* FOOTER */
+        /* SECOND SECTION FOOTER */
 
-        footer {
-            padding: 25px;
+        .message-footer {
+            width: 100%;
+            padding: 28px 15px;
 
-            text-align: center;
-
-            background: #F3D6E1;
-            border-top: 1px solid #E9C4D2;
-        }
-
-        footer p {
-            font-family: 'Sacramento', cursive;
-            font-size: 27px;
+            border-top: 1px solid #F0D5E0;
 
             color: var(--dark-rose);
+            background: #FBEAF0;
+
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
         }
 
-        /* MOBILE VERSION */
+        /* MOBILE RESPONSIVE */
 
         @media (max-width: 600px) {
 
+            .hero {
+                min-height: 100svh;
+            }
+
             .frame {
-                inset: 8px;
+                inset: 9px;
             }
 
-            .top-details {
-                top: 8%;
-                left: 7%;
-                right: 7%;
-            }
-
-            .detail {
-                max-width: 145px;
+            .corner {
                 font-size: 8px;
-                letter-spacing: 0.5px;
             }
 
-            .detail.right {
-                font-size: 19px;
+            .top-left,
+            .top-right {
+                top: 9%;
+            }
+
+            .bottom-left,
+            .bottom-right {
+                bottom: 11%;
+            }
+
+            .hero-content {
+                padding: 15px;
+            }
+
+            .eyebrow {
+                font-size: 9px;
+                letter-spacing: 4px;
             }
 
             .main-title {
-                font-size: clamp(43px, 12vw, 75px);
+                font-size: clamp(48px, 12vw, 75px);
                 letter-spacing: -2px;
-                line-height: 1;
             }
 
-            .small-heading {
-                font-size: 25px;
+            .main-subtitle {
+                margin-top: 22px;
+                font-size: 10px;
+                letter-spacing: 3px;
             }
 
-            .subtitle {
-                font-size: 9px;
-                letter-spacing: 2px;
-            }
-
-            .click-button {
-                margin-top: 25px;
-                padding: 12px 28px;
-            }
-
-            .bottom-details {
-                bottom: 8%;
-                left: 7%;
-                right: 7%;
-            }
-
-            .bottom-details p {
-                font-size: 8px;
-                letter-spacing: 0.5px;
-            }
-
-            .bottom-details .right {
-                font-size: 18px;
+            .enter-button {
+                margin-top: 28px;
+                padding: 10px 23px;
+                font-size: 10px;
             }
 
             .indicators {
-                bottom: 22px;
                 right: 50%;
+                bottom: 4%;
                 transform: translateX(50%);
             }
 
-            .welcome {
-                padding: 75px 25px;
+            .message-content {
+                width: 88%;
+                padding: 85px 0 70px;
             }
 
-            .welcome p {
+            .message-eyebrow {
+                font-size: 9px;
+                letter-spacing: 4px;
+                margin-bottom: 25px;
+            }
+
+            .message-heading {
+                font-size: 32px;
+                margin-bottom: 28px;
+            }
+
+            .message-paragraph {
                 font-size: 13px;
+                line-height: 1.9;
+            }
+
+            .closing-message {
+                font-size: 15px;
+            }
+
+            .message-footer {
+                font-size: 9px;
+                letter-spacing: 3px;
             }
         }
 
     </style>
-
 </head>
 
 
 <body>
 
-    <!-- HOMEPAGE -->
+    <!-- FIRST SECTION: CINEMATIC HOMEPAGE -->
 
-    <section class="hero">
+    <section class="hero" id="home">
 
-        <!-- BACKGROUND PHOTOGRAPHS -->
+        <!-- BACKGROUND PHOTOS -->
 
         <div class="background-slideshow">
 
@@ -515,31 +480,34 @@
         </div>
 
 
+        <!-- FRAME -->
+
         <div class="frame"></div>
 
 
-        <!-- TOP DETAILS -->
+        <!-- TOP LEFT -->
 
-        <div class="top-details">
-
-            <div class="detail">
-                A SIMPLE WEBSITE MADE BY GELO
-                ESPECIALLY FOR YOU
-            </div>
-
-            <div class="detail right">
-                To my forever Sungit ♡
-            </div>
-
+        <div class="corner top-left">
+            A SIMPLE WEBSITE MADE BY GELO
+            ESPECIALLY FOR YOU
         </div>
 
 
-        <!-- MAIN TITLE -->
+        <!-- TOP RIGHT -->
 
-        <div class="main-content">
+        <div class="corner top-right">
+            TO MY FOREVER
+            <br>
+            SUNGIT ♡
+        </div>
 
-            <p class="small-heading">
-                To the loveliest and prettiest
+
+        <!-- CENTER -->
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                TO THE LOVELIEST AND PRETTIEST
             </p>
 
             <h1 class="main-title">
@@ -547,56 +515,55 @@
                 <span>BIRTHDAY</span>
             </h1>
 
-            <p class="subtitle">
+            <p class="main-subtitle">
                 MY BABY · MY LOVIE
                 <br>
                 MY BEBE · MY EBEB
             </p>
 
-            <a href="#welcome" class="click-button">
-                Click Here! ♡
+            <a href="#message" class="enter-button">
+                CLICK HERE! ♡
             </a>
 
         </div>
 
 
-        <!-- BOTTOM DETAILS -->
+        <!-- BOTTOM LEFT -->
 
-        <div class="bottom-details">
-
-            <div>
-                <p>
-                    MY BABY · MY LOVIE
-                    <br>
-                    MY BEBE · MY EBEB
-                </p>
-            </div>
-
-            <div class="right">
-                To my forever Sungit ♡
-            </div>
-
+        <div class="corner bottom-left">
+            MY BABY · MY LOVIE
+            <br>
+            MY BEBE · MY EBEB
         </div>
 
 
-        <!-- PHOTO INDICATORS -->
+        <!-- BOTTOM RIGHT -->
+
+        <div class="corner bottom-right">
+            TO MY FOREVER
+            <br>
+            SUNGIT ♡
+        </div>
+
+
+        <!-- SLIDESHOW DOTS -->
 
         <div class="indicators">
 
             <button class="dot active"
-                    aria-label="Show photograph 1">
+                    aria-label="Show photo 1">
             </button>
 
             <button class="dot"
-                    aria-label="Show photograph 2">
+                    aria-label="Show photo 2">
             </button>
 
             <button class="dot"
-                    aria-label="Show photograph 3">
+                    aria-label="Show photo 3">
             </button>
 
             <button class="dot"
-                    aria-label="Show photograph 4">
+                    aria-label="Show photo 4">
             </button>
 
         </div>
@@ -604,52 +571,49 @@
     </section>
 
 
-    <!-- WELCOME MESSAGE -->
+    <!-- SECOND SECTION: PERSONAL MESSAGE -->
 
-    <section class="welcome" id="welcome">
+    <section class="message-section" id="message">
 
-        <p class="eyebrow">
-            Welcome to our little world, Baby.
-        </p>
+        <div class="message-content">
 
-        <h2>Happy Birthday, baby!</h2>
+            <p class="message-eyebrow">
+                A SIMPLE WEBSITE MADE BY GELO ESPECIALLY FOR YOU
+            </p>
 
-        <p>
-            I made this just for you. Every picture,
-            every word, and every little detail here
-            reminds me of how lucky I am to have you.
-            Happy birthday, my love. ♡
-        </p>
+            <h2 class="message-heading">
+                Welcome to our little world, Baby.
+            </h2>
 
-        <p>
-            Welcome to this simple website I created
-            while I was still in the academy always
-            thinking of you.
-        </p>
+            <p class="message-paragraph">
+                Welcome to this simple website I created
+                while I was still in the academy always
+                thinking of you.
+            </p>
 
-        <p>
-            Feel free to cringe with my words and
-            cringyness. Every word, every picture, and
-            every little detail here reminds me of how
-            super lucky I am to have you. Mwa Mwa.
-            Enjoy my silly website greeting!
-        </p>
+            <p class="message-paragraph">
+                Feel free to cringe with my words and
+                cringyness. Every word, every picture,
+                and every little detail here reminds me
+                of how super lucky I am to have you.
+                Mwa Mwa. Enjoy my silly website greeting!
+            </p>
 
-        <p class="closing">
-            I love you always and the mostest! ♡
-        </p>
+            <p class="closing-message">
+                I love you always and the mostest! ♡
+            </p>
+
+        </div>
+
+
+        <footer class="message-footer">
+            TO MY FOREVER SUNGIT ♡
+        </footer>
 
     </section>
 
 
-    <!-- FOOTER -->
-
-    <footer>
-        <p>To my forever Sungit ♡</p>
-    </footer>
-
-
-    <!-- JAVASCRIPT: BACKGROUND SLIDESHOW -->
+    <!-- JAVASCRIPT: PHOTO SLIDESHOW -->
 
     <script>
 
@@ -657,6 +621,7 @@
         const dots = document.querySelectorAll(".dot");
 
         let currentSlide = 0;
+        let slideshowTimer;
 
         function showSlide(index) {
 
@@ -672,35 +637,34 @@
 
         function nextSlide() {
 
-            let next = (currentSlide + 1) % slides.length;
+            const next = (currentSlide + 1) % slides.length;
 
             showSlide(next);
 
         }
 
-        // Change the background photo every 5 seconds
+        function startSlideshow() {
 
-        let slideshow = setInterval(nextSlide, 5000);
+            clearInterval(slideshowTimer);
 
+            slideshowTimer = setInterval(nextSlide, 5000);
 
-        // Allow visitors to select a photograph
+        }
 
         dots.forEach((dot, index) => {
 
             dot.addEventListener("click", () => {
 
-                clearInterval(slideshow);
-
                 showSlide(index);
-
-                slideshow = setInterval(nextSlide, 5000);
+                startSlideshow();
 
             });
 
         });
 
+        startSlideshow();
+
     </script>
 
 </body>
-
 </html>
